@@ -1,7 +1,7 @@
-export default function Content({data}) {
+export default function Content({pokemon}) {
     return (
         <>
-        <h1>{data.name}{data.type}</h1>
+        <h1>{pokemon.name}</h1>
         </>
     )
 }

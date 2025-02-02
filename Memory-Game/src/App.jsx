@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import "./App.css"
 import Card from "./components/Card"
 import Content from "./components/Content"
@@ -6,6 +6,18 @@ import Content from "./components/Content"
 
 export default function App() {
 
+  const [pokemonList, setPokemonList] = useState([])
+  const [pokemon, setPokemon] = useState({})
+
+  useEffect(() => {
+    fetch("https://pokeapi.co/api/v2/pokemon?limit=10")
+     .then(response =>response.json())
+     .then(data => {
+        setPokemonList(data.results)
+        setPokemon(data.results[0])
+      })
+     .catch(err => console.error(err))
+  }, [])
 
   return (
     <>
@@ -18,9 +30,8 @@ export default function App() {
     </div>
 
     <Card>
-      <Content pokemon= {data}/>
+      <Content pokemon={pokemon}/>
     </Card>
-
     </>
   )
 }
