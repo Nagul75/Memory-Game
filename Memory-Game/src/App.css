@@ -10,3 +10,16 @@ header {
     justify-content: center;
     margin-bottom: 20px;
 }
+
+.options-container {
+    display: flex;
+    justify-content: center;
+}
+
+.options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    width: 1000px;
+}

@@ -7,15 +7,19 @@ import Content from "./components/Content"
 export default function App() {
 
   const [pokemonList, setPokemonList] = useState([])
-  const [pokemon, setPokemon] = useState({})
+
+  function fisherYatesShuffle(arr) {
+  	for (let i = arr.length - 1; i > 0; i--) {
+    	const j = Math.floor(Math.random() * (i + 1));
+    	[arr[i], arr[j]] = [arr[j], arr[i]];
+  	}
+  	return arr;
+  }
 
   useEffect(() => {
     fetch("https://pokeapi.co/api/v2/pokemon?limit=10")
      .then(response =>response.json())
-     .then(data => {
-        setPokemonList(data.results)
-        setPokemon(data.results[0])
-      })
+     .then(data => setPokemonList(fisherYatesShuffle(data.results)))
      .catch(err => console.error(err))
   }, [])
 
@@ -28,10 +32,15 @@ export default function App() {
     <div className="scoreboard">
       <p>Round {"5"}/{"10"}</p>
     </div>
-
-    <Card>
-      <Content pokemon={pokemon}/>
-    </Card>
+    <div className="options-container">
+    <div className="options">
+    {pokemonList.map(pokemon =>
+      <Card>
+        <Content key = {pokemon.name} pokemon={pokemon}/>
+      </Card>
+    )}
+    </div>
+    </div>
     </>
   )
 }
