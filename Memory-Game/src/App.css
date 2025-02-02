@@ -1,0 +1,12 @@
+header {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    padding-bottom: 10px;
+}
+
+.scoreboard {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
