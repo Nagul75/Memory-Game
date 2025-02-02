@@ -17,9 +17,10 @@ export default function App() {
   }
 
   useEffect(() => {
-    fetch("https://pokeapi.co/api/v2/pokemon?limit=10")
+    fetch("https://pokeapi.co/api/v2/pokemon?limit=151")
      .then(response =>response.json())
-     .then(data => setPokemonList(fisherYatesShuffle(data.results)))
+     .then(data =>{
+      setPokemonList(fisherYatesShuffle(data.results).slice(0,10))})
      .catch(err => console.error(err))
   }, [])
 
