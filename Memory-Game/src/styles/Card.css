@@ -6,3 +6,9 @@
     display: flex;
     justify-content: center;
 }
+
+.card-link {
+    display: block;
+    text-decoration: none;
+    color: black;
+}
