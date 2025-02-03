@@ -7,6 +7,7 @@ export default function Card({children, handleClick, data}) {
             if(data.round < 10) {
                 handleClick.setRound(data.round+1)
                 handleClick.setPokemonList(fisherYatesShuffle(data.pokemonList))
+                handleClick.pokemonClick(data.pokemon)
             }
         }}>
         <div className="card-container">

@@ -19,5 +19,5 @@ a {
   }
   a:hover {
     color: rgb(205, 1, 103);
-    box-shadow: inset 200px 0 0 0 hotpink;
+    box-shadow: inset 200px 0 0 0 rgb(205, 1, 103);
   }
