@@ -10,6 +10,7 @@ export default function App() {
   const [pokemonList, setPokemonList] = useState([])
   const [round, setRound] = useState(1)
   const [pokemonClicked, setPokemonClicked] = useState([])
+  const [reset, setReset] = useState(false)
 
   useEffect(() => {
     fetch("https://pokeapi.co/api/v2/pokemon?limit=151")
@@ -17,10 +18,15 @@ export default function App() {
      .then(data =>{
       setPokemonList(fisherYatesShuffle(data.results).slice(0,10))})
      .catch(err => console.error(err))
-  }, [])
+  }, [reset])
 
   function pokemonClick(pokemon) {
-    console.log(pokemon)
+    if(pokemonClicked.includes(pokemon)) {
+      setReset(!reset)
+      setRound(1)
+      setPokemonClicked([])
+      return
+    }
     setPokemonClicked([...pokemonClicked, pokemon])
   }
 
