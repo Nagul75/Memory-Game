@@ -27,6 +27,12 @@ export default function App() {
       setPokemonClicked([])
       return
     }
+    if(round >= 10) {
+      setReset(!reset)
+      setRound(1)
+      setPokemonClicked([])
+      return
+    }
     setPokemonClicked([...pokemonClicked, pokemon])
   }
 

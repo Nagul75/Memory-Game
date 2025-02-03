@@ -9,6 +9,9 @@ export default function Card({children, handleClick, data}) {
                 handleClick.setPokemonList(fisherYatesShuffle(data.pokemonList))
                 handleClick.pokemonClick(data.pokemon)
             }
+            else {
+                handleClick.pokemonClick(data.pokemon)
+            }
         }}>
         <div className="card-container">
         {children}
