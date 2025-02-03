@@ -12,3 +12,12 @@
     text-decoration: none;
     color: black;
 }
+
+a {
+    color: rgb(205, 1, 103);
+    transition: color .3s ease-in-out;
+  }
+  a:hover {
+    color: rgb(205, 1, 103);
+    box-shadow: inset 200px 0 0 0 hotpink;
+  }
